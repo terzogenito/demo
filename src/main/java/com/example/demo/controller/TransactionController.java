@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.MembershipEntity;
 import com.example.demo.model.TopUpRequest;
 import com.example.demo.model.TransactionRequest;
 import com.example.demo.response.ApiResponse;

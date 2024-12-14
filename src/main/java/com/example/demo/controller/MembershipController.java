@@ -7,12 +7,10 @@ import com.example.demo.model.RegistrationRequest;
 import com.example.demo.model.ProfileUpdateRequest;
 import com.example.demo.response.ApiResponse;
 import com.example.demo.service.MembershipService;
-import com.example.demo.service.TransactionService;
 import com.example.demo.util.JwtUtil;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -57,7 +55,6 @@ public class MembershipController {
 
     @GetMapping("/profile")
     public ApiResponse getProfile(@RequestHeader("Authorization") String token) {
-        Claims claims = jwtUtil.validateToken(token);
         String email = jwtUtil.extractUsername(token);
         MembershipEntity profile = membershipService.getProfileByEmail(email);
         if (profile == null) {
